@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E4F1FF;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    border: 1px solid #AED2FF;
+    border-radius: 25px;
+    padding: 30px;
+    background: #AED2FF;
+    gap: 20px;
+}
+
+.container .display{
+    background-color: white;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+}
+
+#password{
+    padding: 10px 0px;
+    width: 80%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #27005D;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+#password::selection{
+    background-color: #AED2FF;
+}
+
+#cbutton{
+    cursor: pointer;
+    font-size: 24px;
+    color: #27005D;
+}
+
+.rotate{
+    animation: rotate .5s ease-in-out;
+}
+
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(359deg);
+    }
+}
+
+.content{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.gbutton{
+    padding: 10px 30px;
+    width: 40%;
+    border-radius: 15px;
+    border: 1px solid #9400FF;
+    background: #9400FF;
+    color: #E4F1FF;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+#input{
+    border-radius: 15px;
+    border: 1px solid #AED2FF;
+    text-align: center;
+    padding: 10px 30px;
+    width: 40%;
+    font-weight: 600;
+    font-size: 16px;
+}
