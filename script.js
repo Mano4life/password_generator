@@ -1,6 +1,7 @@
 let password = document.querySelector("#password");
 let cbtn = document.querySelector("#cbutton");
 let gbtn = document.querySelector(".gbutton");
+let lenInput = document.querySelector("#input");
 
 
 
@@ -32,3 +33,15 @@ cbtn.addEventListener("click", ()=>{
     copyText.select();
     document.execCommand("copy");
 });
+
+function reload(){
+    // password.value ? password.value='' :password.value='';
+    password.value = '';
+    lenInput.value = '';
+}
+
+
+//check for Navigation Timing API support
+if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+    reload();
+}
