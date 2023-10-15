@@ -1,26 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Generator</title>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css' integrity='sha512-KOWhIs2d8WrPgR4lTaFgxI35LLOp5PRki/DxQvb7mlP29YZ5iJ5v8tiLWF7JLk5nDBlgPP1gHzw96cZ77oD7zQ==' crossorigin='anonymous'/>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <header class="display">
-            <input type="text" id="password" placeholder="Generate a Password" readonly>
-            <i class="fa-regular fa-clipboard" id="cbutton"></i>
-        </header>
-        <div class="content">
-            <button class="gbutton">Generate</button>
-            <input type="number"id="input" placeholder="Its Length ?">
-        </div>
-    </div>
+let password = document.querySelector("#password");
+let cbtn = document.querySelector("#cbutton");
+let gbtn = document.querySelector(".gbutton");
+let lenInput = document.querySelector("#input");
 
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js' integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==' crossorigin='anonymous'></script>
-    <script src="script.js"></script>
-</body>
-</html>
+
+gbtn.addEventListener("click",()=>{
+    let chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let passlen = document.querySelector("#input").value;
+    password = "";
+
+    for (let i = 0; i <= passlen; i++) {
+        let randomNumber = Math.floor(Math.random() * chars.length);
+        password += chars.substring(randomNumber, randomNumber +1);
+       };
+
+    document.getElementById("password").value = password;
+    if(cbtn.classList.contains("fa-solid")){
+        cbtn.classList.remove("fa-solid");
+        cbtn.classList.add("fa-regular");
+    }
+    if(cbtn.classList.contains("rotate")){
+        cbtn.classList.remove("rotate")
+    }
+});
+
+cbtn.addEventListener("click", ()=>{
+    cbtn.classList.add("rotate")
+    cbtn.classList.remove("fa-regular");
+    cbtn.classList.add("fa-solid")
+    let copyText = document.getElementById("password");
+    copyText.select();
+    document.execCommand("copy");
+});
+
+function reload(){
+    // password.value ? password.value='' :password.value='';
+    password.value = '';
+    lenInput.value = '';
+}
+
+
+//check for Navigation Timing API support
+if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+    reload();
+}
