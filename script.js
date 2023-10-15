@@ -35,7 +35,6 @@ cbtn.addEventListener("click", ()=>{
 });
 
 function reload(){
-    // password.value ? password.value='' :password.value='';
     password.value = '';
     lenInput.value = '';
 }
